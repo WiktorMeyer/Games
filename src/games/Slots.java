@@ -1,4 +1,4 @@
-package games.guessNumber;
+package games;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
