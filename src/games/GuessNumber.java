@@ -19,7 +19,7 @@ public class GuessNumber {
     private static final int MIN = 1;
     private static final int MAX = 10;
     private static final Scanner SCANNER = new Scanner(System.in);
-    private Casino casino;
+    private final Casino casino;
 
     public GuessNumber(Casino casino) {
         this.casino = casino;

@@ -4,8 +4,8 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Slots {
-    private static Scanner scanner = new Scanner(System.in);
-    private Casino casino;
+    private static final Scanner scanner = new Scanner(System.in);
+    private final Casino casino;
 
     public Slots(Casino casino) {
         this.casino = casino;
@@ -34,7 +34,7 @@ public class Slots {
                 System.out.println("You won "+ winnings+"$");
                 casino.setBalance(casino.getBalance() + winnings);
                 System.out.println("Do you want to play again? (Y/N)");
-                play = casino.playAgain();
+                play = casino.getBoolean();
             }else{
                 System.out.println("You have no money in your wallet. :(");
                 play = false;
@@ -71,6 +71,7 @@ public class Slots {
                 if (bet.get() > casino.getBalance()){
                     System.out.println("You don't have enough money!");
                     bet = Optional.empty();
+                    System.out.println("Enter bet amount: ");
                 }else if(bet.get() <= 0){
                     System.out.println("Bet must be greater than 0");
                     bet = Optional.empty();

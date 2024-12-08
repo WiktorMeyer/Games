@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Casino {
     private int balance;
-    private static Scanner scanner = new Scanner(System.in);
-    private Slots slots;
-    private GuessNumber guessNumber;
+    private static final Scanner scanner = new Scanner(System.in);
+    private final Slots slots;
+    private final GuessNumber guessNumber;
 
     public int getBalance() {
         return balance;
@@ -32,7 +32,7 @@ public class Casino {
         System.out.println("Welcome to Casino!");
         System.out.println("What is your balance?");
         setBalance(inputBalance());
-        while (true) {
+        do {
             System.out.println("What do you want to play?");
             System.out.println("Press 1 for Blackjack");
             System.out.println("Press 2 for Guess Number");
@@ -51,8 +51,9 @@ public class Casino {
             } else {
                 System.out.println("Invalid choice");
             }
-
-        }
+            System.out.println("Do you want to exit casino? (Y/N)");
+        } while (!getBoolean());
+        System.out.println("Thank you for playing!");
     }
 
     public int inputBalance() {
@@ -88,7 +89,7 @@ public class Casino {
      * Assert if the player want to play again
      * @return true/false
      */
-    public boolean playAgain(){
+    public boolean getBoolean(){
         while (true) {
             try {
                 if (scanner.nextLine().equalsIgnoreCase("y")){
