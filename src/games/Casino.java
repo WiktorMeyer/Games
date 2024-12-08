@@ -27,6 +27,9 @@ public class Casino {
         casino.playCasino();
     }
 
+    /**
+     * A whole sequence of commands that simulate playing at the casino
+     */
     public void playCasino(){
         int choice;
         System.out.println("Welcome to Casino!");
@@ -56,6 +59,10 @@ public class Casino {
         System.out.println("Thank you for playing!");
     }
 
+    /**
+     * Get the starting balance from the user
+     * @return an int that user input
+     */
     public int inputBalance() {
         Optional<Integer> balance = Optional.empty();
         while (balance.isEmpty()) {
@@ -73,6 +80,10 @@ public class Casino {
         return balance.get();
     }
 
+    /**
+     * A method to get a number from a user
+     * @return number input by the user
+     */
     public int getNumber() {
         Optional<Integer> number = Optional.empty();
         while (number.isEmpty()) {
@@ -86,7 +97,7 @@ public class Casino {
     }
 
     /**
-     * Assert if the player want to play again
+     * Get a boolean from the user
      * @return true/false
      */
     public boolean getBoolean(){
