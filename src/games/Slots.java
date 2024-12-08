@@ -5,8 +5,13 @@ import java.util.concurrent.TimeUnit;
 
 public class Slots {
     private static Scanner scanner = new Scanner(System.in);
+    private Casino casino;
 
-    public void playSlots(){
+    public Slots(Casino casino) {
+        this.casino = casino;
+    }
+
+    public void playSlots() throws InterruptedException {
         boolean play = true;
 
         System.out.println("************************");
@@ -17,17 +22,17 @@ public class Slots {
         while (play) {
             int bet;
             int winnings;
-            if (getBalance() > 0){
-                System.out.println("Current Balance: " + balance +"$");
+            if (casino.getBalance() > 0){
+                System.out.println("Current Balance: " + casino.getBalance() +"$");
                 System.out.println("Enter bet amount: ");
                 bet = inputBet();
-                balance -= bet;
+                casino.setBalance(casino.getBalance() - bet);
                 System.out.println("Spinning...");
                 TimeUnit.SECONDS.sleep(1);
                 winnings= determineWinnings(spinRow(),bet);
                 TimeUnit.MILLISECONDS.sleep(500);
                 System.out.println("You won "+ winnings+"$");
-                balance += winnings;
+                casino.setBalance(casino.getBalance() + winnings);
                 System.out.println("Do you want to play again? (Y/N)");
                 play = playAgain();
             }else{
@@ -57,13 +62,13 @@ public class Slots {
      * A methods to get the bet amount from the user
      * @return amount that the user wants to bet
      */
-    public static int inputBet(){
+    public int inputBet(){
         Optional<Integer> bet = Optional.empty();
 
         while (bet.isEmpty()) {
             try{
                 bet = Optional.of(Integer.parseInt(scanner.nextLine()));
-                if (bet.get() > balance){
+                if (bet.get() > casino.getBalance()){
                     System.out.println("You don't have enough money!");
                     bet = Optional.empty();
                 }else if(bet.get() <= 0){
@@ -85,7 +90,7 @@ public class Slots {
      * @param bet Amount bet by the player
      * @return Amount of $ won by the player
      */
-    public static int determineWinnings(String[] row, int bet){
+    public int determineWinnings(String[] row, int bet){
         if (row[0].equals(row[1]) && row[1].equals(row[2])){
             return switch (row[1]) {
                 case ("🍒") -> bet * 3;
@@ -113,7 +118,7 @@ public class Slots {
      * Assert if the player want to play again
      * @return true/false
      */
-    public static boolean playAgain(){
+    public boolean playAgain(){
         while (true) {
             try {
                 if (scanner.nextLine().equalsIgnoreCase("y")){
