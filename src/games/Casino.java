@@ -17,6 +17,11 @@ public class Casino {
         this.balance = balance;
     }
 
+    public Casino() {
+        this.slots = new Slots(this);
+        guessNumber = new GuessNumber(this);
+    }
+
     public static void main(String[] args) {
         Casino casino = new Casino();
         casino.startCasino();
@@ -43,6 +48,7 @@ public class Casino {
                 System.out.println("Please enter a number!");
             }
         }
+        return balance.get();
     }
 
 

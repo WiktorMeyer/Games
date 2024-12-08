@@ -11,11 +11,19 @@ import static java.lang.Integer.parseInt;
  * guess the number that was generated randomly
  * By default the number are in [1,10] range
  */
+//TODO: implement playing for money
+//TODO: implement playing in a loop
+
 public class GuessNumber {
 
     private static final int MIN = 1;
     private static final int MAX = 10;
     private static final Scanner SCANNER = new Scanner(System.in);
+    private Casino casino;
+
+    public GuessNumber(Casino casino) {
+        this.casino = casino;
+    }
 
     public static void main(String[] args) {
         int randomNumber = generateRandomNumber(MIN, MAX);
