@@ -34,7 +34,7 @@ public class Slots {
                 System.out.println("You won "+ winnings+"$");
                 casino.setBalance(casino.getBalance() + winnings);
                 System.out.println("Do you want to play again? (Y/N)");
-                play = playAgain();
+                play = casino.playAgain();
             }else{
                 System.out.println("You have no money in your wallet. :(");
                 play = false;
@@ -114,21 +114,4 @@ public class Slots {
         return 0;
     }
 
-    /**
-     * Assert if the player want to play again
-     * @return true/false
-     */
-    public boolean playAgain(){
-        while (true) {
-            try {
-                if (scanner.nextLine().equalsIgnoreCase("y")){
-                    return true;
-                }else{
-                    System.out.println("Enter y or n");
-                }
-            } catch (Exception e) {
-                System.out.println("Enter y or n");
-            }
-        }
-    }
 }
