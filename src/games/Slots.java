@@ -16,8 +16,8 @@ public class Slots {
         System.out.println("************************\n");
 
         while (play) {
-            int bet = 0;
-            int winnings = 0;
+            int bet;
+            int winnings;
             if (balance > 0){
                 System.out.println("Current Balance: " + balance +"$");
                 System.out.println("Enter bet amount: ");
@@ -32,7 +32,7 @@ public class Slots {
                 System.out.println("Do you want to play again? (Y/N)");
                 play = playAgain();
             }else{
-                System.out.println("You lost all you money. :(");
+                System.out.println("You have no money in your wallet. :(");
                 play = false;
             }
         }
@@ -117,7 +117,11 @@ public class Slots {
     public static boolean playAgain(){
         while (true) {
             try {
-                return scanner.nextLine().equalsIgnoreCase("y");
+                if (scanner.nextLine().equalsIgnoreCase("y")){
+                    return true;
+                }else{
+                    System.out.println("Enter y or n");
+                }
             } catch (Exception e) {
                 System.out.println("Enter y or n");
             }
