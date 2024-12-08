@@ -4,11 +4,10 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Slots {
-    private static int balance = 100;
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) throws InterruptedException {
-         boolean play = true;
+    public void playSlots(){
+        boolean play = true;
 
         System.out.println("************************");
         System.out.println("Welcome to Java Slots!");
@@ -18,7 +17,7 @@ public class Slots {
         while (play) {
             int bet;
             int winnings;
-            if (balance > 0){
+            if (getBalance() > 0){
                 System.out.println("Current Balance: " + balance +"$");
                 System.out.println("Enter bet amount: ");
                 bet = inputBet();
