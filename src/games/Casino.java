@@ -24,10 +24,10 @@ public class Casino {
 
     public static void main(String[] args) {
         Casino casino = new Casino();
-        casino.startCasino();
+        casino.playCasino();
     }
 
-    public void startCasino(){
+    public void playCasino(){
         int choice;
         System.out.println("Welcome to Casino!");
         System.out.println("What is your balance?");
@@ -92,7 +92,8 @@ public class Casino {
     public boolean getBoolean(){
         while (true) {
             try {
-                if (scanner.nextLine().equalsIgnoreCase("y")){
+                String input = scanner.nextLine();
+                if (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes")){
                     return true;
                 }else{
                     System.out.println("Enter y or n");
