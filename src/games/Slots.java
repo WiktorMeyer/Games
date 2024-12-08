@@ -4,8 +4,8 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Slots {
-    public static int balance = 100;
-    public static Scanner scanner = new Scanner(System.in);
+    private static int balance = 100;
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
          boolean play = true;
