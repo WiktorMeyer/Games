@@ -14,11 +14,10 @@ import static java.lang.Integer.parseInt;
 //TODO: implement playing for money
 //TODO: implement playing in a loop
 
-public class GuessNumber {
+public class GuessNumber extends Game{
 
     private static final int MIN = 1;
     private static final int MAX = 10;
-    private static final Scanner SCANNER = new Scanner(System.in);
     private final Casino casino;
 
     public GuessNumber(Casino casino) {
@@ -44,7 +43,7 @@ public class GuessNumber {
         Optional<Integer> enteredNumber = Optional.empty();
         while (enteredNumber.isEmpty()) {
             try {
-                int input = parseInt(SCANNER.nextLine());
+                int input = parseInt(scanner.nextLine());
                 if (input < MIN || input > MAX) {
                     System.out.println("That is outside the range.");
                     System.out.printf("Please enter a number between %d and %d.%n", MIN, MAX);

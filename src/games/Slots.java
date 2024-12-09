@@ -3,8 +3,7 @@ package games;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class Slots {
-    private static final Scanner scanner = new Scanner(System.in);
+public class Slots extends Game{
     private final Casino casino;
 
     public Slots(Casino casino) {
