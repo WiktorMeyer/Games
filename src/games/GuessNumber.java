@@ -1,7 +1,6 @@
 package games;
 
 import java.util.Optional;
-import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
@@ -16,8 +15,8 @@ import static java.lang.Integer.parseInt;
 
 public class GuessNumber extends Game{
 
-    private static final int MIN = 1;
-    private static final int MAX = 10;
+    private final int MIN = 1;
+    private final int MAX = 10;
 
     public GuessNumber(Casino casino) {
         setCasino(casino);
