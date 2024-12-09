@@ -25,7 +25,7 @@ public class GuessNumber {
         this.casino = casino;
     }
 
-    public static void main(String[] args) {
+    public void playGuessNumber(){
         int randomNumber = generateRandomNumber(MIN, MAX);
         System.out.println("Guess the number between 1 and 10:");
         int enteredNumber = readNumber();
@@ -40,7 +40,7 @@ public class GuessNumber {
      * reads the number
      * @return an integer that is in range
      */
-    private static int readNumber() {
+    private int readNumber() {
         Optional<Integer> enteredNumber = Optional.empty();
         while (enteredNumber.isEmpty()) {
             try {
@@ -64,7 +64,7 @@ public class GuessNumber {
      * @param max upper bound of the interval
      * @return an integer between min and max inclusive
      */
-    private static int generateRandomNumber(int min, int max) {
+    private int generateRandomNumber(int min, int max) {
         return (int) (Math.random() * (max - min + 1) + min);
     }
 }
