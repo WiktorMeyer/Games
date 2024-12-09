@@ -18,10 +18,9 @@ public class GuessNumber extends Game{
 
     private static final int MIN = 1;
     private static final int MAX = 10;
-    private final Casino casino;
 
     public GuessNumber(Casino casino) {
-        this.casino = casino;
+        setCasino(casino);
     }
 
     public void playGuessNumber(){

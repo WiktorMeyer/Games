@@ -4,10 +4,9 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Slots extends Game{
-    private final Casino casino;
 
     public Slots(Casino casino) {
-        this.casino = casino;
+        setCasino(casino);
     }
 
     public void playSlots() throws InterruptedException {
@@ -21,19 +20,19 @@ public class Slots extends Game{
         while (play) {
             int bet;
             int winnings;
-            if (casino.getBalance() > 0){
-                System.out.println("Current Balance: " + casino.getBalance() +"$");
+            if (getCasino().getBalance() > 0){
+                System.out.println("Current Balance: " + getCasino().getBalance() +"$");
                 System.out.println("Enter bet amount: ");
                 bet = inputBet();
-                casino.setBalance(casino.getBalance() - bet);
+                getCasino().setBalance(getCasino().getBalance() - bet);
                 System.out.println("Spinning...");
                 TimeUnit.SECONDS.sleep(1);
                 winnings= determineWinnings(spinRow(),bet);
                 TimeUnit.MILLISECONDS.sleep(500);
                 System.out.println("You won "+ winnings+"$");
-                casino.setBalance(casino.getBalance() + winnings);
+                getCasino().setBalance(getCasino().getBalance() + winnings);
                 System.out.println("Do you want to play again? (Y/N)");
-                play = casino.getBoolean();
+                play = getCasino().getBoolean();
             }else{
                 System.out.println("You have no money in your wallet. :(");
                 play = false;
@@ -55,33 +54,6 @@ public class Slots extends Game{
         }
         System.out.println(Arrays.toString(row));
         return row;
-    }
-
-    /**
-     * A methods to get the bet amount from the user
-     * @return amount that the user wants to bet
-     */
-    public int inputBet(){
-        Optional<Integer> bet = Optional.empty();
-
-        while (bet.isEmpty()) {
-            try{
-                bet = Optional.of(Integer.parseInt(scanner.nextLine()));
-                if (bet.get() > casino.getBalance()){
-                    System.out.println("You don't have enough money!");
-                    bet = Optional.empty();
-                    System.out.println("Enter bet amount: ");
-                }else if(bet.get() <= 0){
-                    System.out.println("Bet must be greater than 0");
-                    bet = Optional.empty();
-                    System.out.println("Enter bet amount: ");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Enter an integer");
-                System.out.println("Enter bet amount: ");
-            }
-        }
-        return bet.get();
     }
 
     /**
