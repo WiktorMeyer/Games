@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 public abstract class Game {
     protected final Scanner scanner = new Scanner(System.in);
-    private Casino dadawd;
+    private Casino casino;
 
     public Casino getCasino() {
-        return dadawd;
+        return casino;
     }
 
     public void setCasino(Casino casino) {
-        this.dadawd = casino;
+        this.casino = casino;
     }
 
     /**
@@ -25,7 +25,7 @@ public abstract class Game {
         while (bet.isEmpty()) {
             try{
                 bet = Optional.of(Integer.parseInt(scanner.nextLine()));
-                if (bet.get() > dadawd.getBalance()){
+                if (bet.get() > casino.getBalance()){
                     System.out.println("You don't have enough money!");
                     bet = Optional.empty();
                     System.out.println("Enter bet amount: ");
