@@ -24,14 +24,23 @@ public class GuessNumber extends Game{
     }
 
     public void playGuessNumber(){
-        int randomNumber = generateRandomNumber(MIN, MAX);
-        System.out.println("Guess the number between 1 and 10:");
-        int enteredNumber = readNumber();
-        while (enteredNumber != randomNumber) {
-            System.out.println("Incorrect :c Try again!");
-            enteredNumber = readNumber();
+        boolean play = true;
+        System.out.println("************************");
+        System.out.println("Welcome to Guess Number!");
+        System.out.println("************************\n");
+
+        while(play) {
+            int randomNumber = generateRandomNumber(MIN, MAX);
+            System.out.println("Guess the number between 1 and 10:");
+            int enteredNumber = readNumber();
+            while (enteredNumber != randomNumber) {
+                System.out.println("Incorrect :c Try again!");
+                enteredNumber = readNumber();
+            }
+            System.out.println("Correct! The number was: " + randomNumber);
+            System.out.println("Do you want to play again? (Y/N)");
+            play = getCasino().getBoolean();
         }
-        System.out.println("Correct! The number was: " + randomNumber);
     }
 
     /**

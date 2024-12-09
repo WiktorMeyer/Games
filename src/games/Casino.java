@@ -44,7 +44,7 @@ public class Casino {
             if (choice == 1){
                 //TODO: play Blackjack
             } else if (choice == 2){
-                //TODO: play Guess Number
+                guessNumber.playGuessNumber();
             } else if (choice == 3){
                 try {
                     slots.playSlots();
