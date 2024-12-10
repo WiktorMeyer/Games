@@ -11,7 +11,6 @@ import static java.lang.Integer.parseInt;
  * By default the number are in [1,10] range
  */
 //TODO: implement playing for money
-//TODO: implement playing in a loop
 
 public class GuessNumber extends Game{
 
@@ -30,7 +29,7 @@ public class GuessNumber extends Game{
 
         while(play) {
             int randomNumber = generateRandomNumber(MIN, MAX);
-            System.out.println("Guess the number between 1 and 10:");
+            System.out.printf("Guess the number between %d and %d:%n",MIN,MAX);
             int enteredNumber = readNumber();
             while (enteredNumber != randomNumber) {
                 System.out.println("Incorrect :c Try again!");
