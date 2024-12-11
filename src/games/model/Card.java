@@ -1,4 +1,4 @@
-package games;
+package games.model;
 
 public class Card {
     private final String rank;

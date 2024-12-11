@@ -1,4 +1,6 @@
-package games;
+package games.model;
+
+import games.Casino;
 
 public class BlackJack extends Game {
 

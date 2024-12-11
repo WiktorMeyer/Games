@@ -1,5 +1,8 @@
 package games;
 
+import games.model.GuessNumber;
+import games.model.Slots;
+
 import java.util.Optional;
 import java.util.Scanner;
 

@@ -1,4 +1,6 @@
-package games;
+package games.model;
+
+import games.Casino;
 
 import java.util.Optional;
 
@@ -12,7 +14,7 @@ import static java.lang.Integer.parseInt;
  */
 //TODO: implement playing for money
 
-public class GuessNumber extends Game{
+public class GuessNumber extends Game {
 
     private final int MIN = 1;
     private final int MAX = 10;

@@ -1,9 +1,11 @@
-package games;
+package games.model;
+
+import games.Casino;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class Slots extends Game{
+public class Slots extends Game {
 
     public Slots(Casino casino) {
         setCasino(casino);
