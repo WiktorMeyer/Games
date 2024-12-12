@@ -7,8 +7,8 @@ import games.view.TUI.SlotsView;
 import java.util.concurrent.TimeUnit;
 
 public class SlotsController {
-    private Slots model;
-    private SlotsView view;
+    private final Slots model;
+    private final SlotsView view;
     public Casino casino;
 
     public SlotsController(Casino casino) {
@@ -20,6 +20,7 @@ public class SlotsController {
     public void playSlots() throws InterruptedException {
         boolean play = true;
 
+        view.displayWelcomeMessage();
         while (play) {
             int bet;
             int winnings;
@@ -40,7 +41,7 @@ public class SlotsController {
                 view.displayMessage("You won "+ winnings+"$");
                 casino.setBalance(casino.getBalance() + winnings);
                 //play again?
-                view.displayMessage("Do you want to play again? (Y/N)");
+                view.displayPlayAgainQuestion();
                 play = view.getBoolean();
             }else{
                 view.displayNoMoney();

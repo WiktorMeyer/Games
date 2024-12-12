@@ -2,7 +2,7 @@ package games.model;
 
 import java.util.*;
 
-public class Slots extends Game {
+public class Slots {
 
     /**
      * @return A String array of length 3 with random symbols

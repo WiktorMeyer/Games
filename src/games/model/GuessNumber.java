@@ -1,9 +1,5 @@
 package games.model;
 
-import java.util.Optional;
-
-import static java.lang.Integer.parseInt;
-
 /**
  * A simple guess number game
  * You input the number to the console until you
@@ -12,52 +8,22 @@ import static java.lang.Integer.parseInt;
  */
 //TODO: implement playing for money
 
-public class GuessNumber extends Game {
+public class GuessNumber{
 
-    private final int MIN = 1;
-    private final int MAX = 10;
+    private final int MIN;
+    private final int MAX;
 
-    public GuessNumber(Casino casino) {
-        setCasino(casino);
+    public GuessNumber() {
+        this.MIN = 1;
+        this.MAX = 10;
     }
 
-    public void playGuessNumber(){
-        boolean play = true;
-
-        while(play) {
-            int randomNumber = generateRandomNumber(MIN, MAX);
-            System.out.printf("Guess the number between %d and %d:%n",MIN,MAX);
-            int enteredNumber = readNumber();
-            while (enteredNumber != randomNumber) {
-                System.out.println("Incorrect :c Try again!");
-                enteredNumber = readNumber();
-            }
-            System.out.println("Correct! The number was: " + randomNumber);
-            System.out.println("Do you want to play again? (Y/N)");
-            play = getCasino().getBoolean();
-        }
+    public int getMIN() {
+        return MIN;
     }
 
-    /**
-     * reads the number
-     * @return an integer that is in range
-     */
-    private int readNumber() {
-        Optional<Integer> enteredNumber = Optional.empty();
-        while (enteredNumber.isEmpty()) {
-            try {
-                int input = parseInt(scanner.nextLine());
-                if (input < MIN || input > MAX) {
-                    System.out.println("That is outside the range.");
-                    System.out.printf("Please enter a number between %d and %d.%n", MIN, MAX);
-                }else{
-                    enteredNumber = Optional.of(input);
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a number.");
-            }
-        }
-        return enteredNumber.get();
+    public int getMAX() {
+        return MAX;
     }
 
     /**
@@ -66,7 +32,7 @@ public class GuessNumber extends Game {
      * @param max upper bound of the interval
      * @return an integer between min and max inclusive
      */
-    private int generateRandomNumber(int min, int max) {
+    public int generateRandomNumber(int min, int max) {
         return (int) (Math.random() * (max - min + 1) + min);
     }
 }

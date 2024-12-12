@@ -4,8 +4,8 @@ import games.model.Casino;
 import games.view.TUI.CasinoView;
 
 public class CasinoController {
-    private CasinoView view;
-    private Casino model;
+    private final CasinoView view;
+    private final Casino model;
 
     public CasinoController() {
         this.view = new CasinoView();
@@ -19,28 +19,27 @@ public class CasinoController {
         int choice;
         view.displayMessage("Welcome to Casino!");
         view.displayMessage("What is your balance?");
-        model.setBalance(model.inputBalance());
+        model.setBalance(view.inputBalance());
         do {
             view.displayOptions();
-            choice = model.getNumber();
+            choice = view.inputNumber();
             if (choice == 1){
                 //TODO: play Blackjack
             } else if (choice == 2){
-                GuessNumberController guessNumberController = new GuessNumberController();
+                GuessNumberController guessNumberController = new GuessNumberController(model);
                 guessNumberController.playGuessNumber();
             } else if (choice == 3){
-                SlotsController slotsController = new SlotsController();
+                SlotsController slotsController = new SlotsController(model);
                 try {
                     slotsController.playSlots();
                 } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
                     System.out.println(e.getMessage());
                 }
             } else {
                 view.displayMessage("Invalid choice!");
             }
             view.displayMessage("Do you want to exit casino? (Y/N)");
-        } while (!model.getBoolean());
-        view.displayMessage("Thank you for playing!");
+        } while (!view.getBoolean());
+        view.displayTy4Playing();
     }
 }
