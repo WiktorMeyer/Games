@@ -30,7 +30,12 @@ public class CasinoController {
                 guessNumberController.playGuessNumber();
             } else if (choice == 3){
                 SlotsController slotsController = new SlotsController();
-                slotsController.playSlots();
+                try {
+                    slotsController.playSlots();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                    System.out.println(e.getMessage());
+                }
             } else {
                 view.displayMessage("Invalid choice!");
             }

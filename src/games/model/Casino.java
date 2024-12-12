@@ -63,27 +63,4 @@ public class Casino {
         }
         return number.get();
     }
-
-    /**
-     * Get a boolean from the user
-     * @return true/false
-     */
-    public boolean getBoolean(){
-        while (true) {
-            try {
-                String input = scanner.nextLine();
-                if (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes")){
-                    return true;
-                }else if( input.equalsIgnoreCase("n") || input.equalsIgnoreCase("no")){
-                    return false;
-                } else{
-                    System.out.println("Enter y or n");
-                }
-            } catch (Exception e) {
-                System.out.println("Enter y or n");
-            }
-        }
-    }
-
-
 }

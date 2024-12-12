@@ -10,6 +10,6 @@ public class BlackJackController {
 
     public BlackJackController() {
         this.view = new BlackJackView();
-        this.model = new BlackJack()
+        this.model = new BlackJack();
     }
 }

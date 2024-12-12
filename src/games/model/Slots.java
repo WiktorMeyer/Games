@@ -1,18 +1,13 @@
 package games.model;
 
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class Slots extends Game {
-
-    public Slots(Casino casino) {
-        setCasino(casino);
-    }
 
     /**
      * @return A String array of length 3 with random symbols
      */
-    public static String[] spinRow(){
+    public String[] spinRow(){
         String[] row = new String[3];
         String[] symbols = {"🍒", "🍉", "🍋", "🔔", "⭐"};
         Random rand = new Random();
@@ -20,7 +15,6 @@ public class Slots extends Game {
         for (int i = 0; i < 3; i++) {
             row[i] = symbols[rand.nextInt(symbols.length)];
         }
-        System.out.println(Arrays.toString(row));
         return row;
     }
 
