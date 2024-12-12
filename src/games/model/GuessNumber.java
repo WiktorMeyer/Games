@@ -23,9 +23,6 @@ public class GuessNumber extends Game {
 
     public void playGuessNumber(){
         boolean play = true;
-        System.out.println("************************");
-        System.out.println("Welcome to Guess Number!");
-        System.out.println("************************\n");
 
         while(play) {
             int randomNumber = generateRandomNumber(MIN, MAX);

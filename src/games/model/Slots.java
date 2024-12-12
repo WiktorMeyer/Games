@@ -9,38 +9,6 @@ public class Slots extends Game {
         setCasino(casino);
     }
 
-    public void playSlots() throws InterruptedException {
-        boolean play = true;
-
-        System.out.println("************************");
-        System.out.println("Welcome to Java Slots!");
-        System.out.println("Symbols: 🍒 🍉 🍋 🔔 ⭐");
-        System.out.println("************************\n");
-
-        while (play) {
-            int bet;
-            int winnings;
-            if (getCasino().getBalance() > 0){
-                System.out.println("Current Balance: " + getCasino().getBalance() +"$");
-                System.out.println("Enter bet amount: ");
-                bet = inputBet();
-                getCasino().setBalance(getCasino().getBalance() - bet);
-                System.out.println("Spinning...");
-                TimeUnit.SECONDS.sleep(1);
-                winnings= determineWinnings(spinRow(),bet);
-                TimeUnit.MILLISECONDS.sleep(500);
-                System.out.println("You won "+ winnings+"$");
-                getCasino().setBalance(getCasino().getBalance() + winnings);
-                System.out.println("Do you want to play again? (Y/N)");
-                play = getCasino().getBoolean();
-            }else{
-                System.out.println("You have no money in your wallet. :(");
-                play = false;
-            }
-        }
-        System.out.println("Thank you for playing!");
-    }
-
     /**
      * @return A String array of length 3 with random symbols
      */
