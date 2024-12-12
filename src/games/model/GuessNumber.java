@@ -1,7 +1,5 @@
 package games.model;
 
-import games.Casino;
-
 import java.util.Optional;
 
 import static java.lang.Integer.parseInt;

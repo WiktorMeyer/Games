@@ -1,7 +1,4 @@
-package games;
-
-import games.model.GuessNumber;
-import games.model.Slots;
+package games.model;
 
 import java.util.Optional;
 import java.util.Scanner;
@@ -28,38 +25,6 @@ public class Casino {
     public static void main(String[] args) {
         Casino casino = new Casino();
         casino.playCasino();
-    }
-
-    /**
-     * A whole sequence of commands that simulate playing at the casino
-     */
-    public void playCasino(){
-        int choice;
-        System.out.println("Welcome to Casino!");
-        System.out.println("What is your balance?");
-        setBalance(inputBalance());
-        do {
-            System.out.println("What do you want to play?");
-            System.out.println("Press 1 for Blackjack");
-            System.out.println("Press 2 for Guess Number");
-            System.out.println("Press 3 for Slots");
-            choice = getNumber();
-            if (choice == 1){
-                //TODO: play Blackjack
-            } else if (choice == 2){
-                guessNumber.playGuessNumber();
-            } else if (choice == 3){
-                try {
-                    slots.playSlots();
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-            } else {
-                System.out.println("Invalid choice");
-            }
-            System.out.println("Do you want to exit casino? (Y/N)");
-        } while (!getBoolean());
-        System.out.println("Thank you for playing!");
     }
 
     /**

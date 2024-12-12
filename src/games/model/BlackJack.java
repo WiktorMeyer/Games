@@ -1,7 +1,5 @@
 package games.model;
 
-import games.Casino;
-
 public class BlackJack extends Game {
 
     public BlackJack(Casino casino) {
