@@ -15,7 +15,7 @@ public class GuessNumber{
 
     public GuessNumber() {
         this.MIN = 1;
-        this.MAX = 10;
+        this.MAX = 5;
     }
 
     public int getMIN() {
