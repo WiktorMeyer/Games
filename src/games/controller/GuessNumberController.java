@@ -17,9 +17,16 @@ public class GuessNumberController {
 
     public void playGuessNumber(){
         boolean play = true;
+        int bet;
+        int winnings;
 
         view.displayWelcomeMessage();
         while(play) {
+            int multiplier = 10;
+            //enter the bet
+            view.displayMessage("Current Balance: " + casino.getBalance() +"$");
+            bet = view.inputBet(casino.getBalance());
+            casino.setBalance(casino.getBalance() - bet);
             //generate a random number
             int randomNumber = model.generateRandomNumber(model.getMIN(), model.getMAX());
             view.displayGuessBetween(model.getMIN(), model.getMAX());
@@ -29,10 +36,18 @@ public class GuessNumberController {
                 enteredNumber = view.inputNumberInRange(model.getMIN(), model.getMAX());
                 if (enteredNumber != randomNumber){
                     view.displayMessage("Incorrect :c Try again!");
+                    multiplier = switch (multiplier) {
+                        case 10 -> 5;
+                        case 5 -> 2;
+                        default -> 0;
+                    };
                 }
             } while (enteredNumber != randomNumber);
-            //TODO: get winnings
             view.displayMessage("Correct! The number was: " + randomNumber);
+
+            winnings = bet*multiplier;
+            view.displayMessage("You won "+ winnings+"$");
+            casino.setBalance(casino.getBalance() + winnings);
             //play again?
             view.displayPlayAgainQuestion();
             play = view.getBoolean();

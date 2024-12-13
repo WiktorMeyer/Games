@@ -20,6 +20,7 @@ public abstract class View {
     public int inputBet(int balance){
         Optional<Integer> bet = Optional.empty();
 
+        displayMessage("Enter bet amount: ");
         while (bet.isEmpty()) {
             try{
                 bet = Optional.of(Integer.parseInt(scanner.nextLine()));

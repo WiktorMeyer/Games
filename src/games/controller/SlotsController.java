@@ -27,7 +27,6 @@ public class SlotsController {
             if (casino.getBalance() > 0){
                 //entering bet
                 view.displayMessage("Current Balance: " + casino.getBalance() +"$");
-                view.displayMessage("Enter bet amount: ");
                 bet = view.inputBet(casino.getBalance());
                 casino.setBalance(casino.getBalance() - bet);
                 //spinning slots
