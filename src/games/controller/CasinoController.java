@@ -15,7 +15,7 @@ public class CasinoController {
     /**
      * A whole sequence of commands that simulate playing at the casino
      */
-    public void playCasino(){
+    public void playCasino() {
         int choice;
         view.displayMessage("Welcome to Casino!");
         view.displayMessage("What is your balance?");

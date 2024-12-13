@@ -26,7 +26,7 @@ public class SlotsController {
             int winnings;
             if (casino.getBalance() > 0){
                 //entering bet
-                view.displayMessage("Current Balance: " + casino.getBalance() +"$");
+                view.displayMessage("Current Balance: " + casino.getBalance() + "$");
                 bet = view.inputBet(casino.getBalance());
                 casino.setBalance(casino.getBalance() - bet);
                 //spinning slots
@@ -36,13 +36,13 @@ public class SlotsController {
                 view.displayRow(row);
                 //getting the winnings
                 TimeUnit.MILLISECONDS.sleep(500);
-                winnings= model.determineWinnings(row,bet);
-                view.displayMessage("You won "+ winnings+"$");
+                winnings = model.determineWinnings(row, bet);
+                view.displayMessage("You won " + winnings + "$");
                 casino.setBalance(casino.getBalance() + winnings);
                 //play again?
                 view.displayPlayAgainQuestion();
                 play = view.getBoolean();
-            }else{
+            } else {
                 view.displayNoMoney();
                 play = false;
             }

@@ -1,6 +1,6 @@
 package games.view.TUI;
 
-public class BlackJackView extends View{
+public class BlackJackView extends View {
 
     @Override
     public void displayWelcomeMessage() {

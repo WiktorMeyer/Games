@@ -12,7 +12,7 @@ public class SlotsView extends View {
         System.out.println("************************\n");
     }
 
-    public void displayRow(String[] row){
+    public void displayRow(String[] row) {
         System.out.println(Arrays.toString(row));
     }
 }

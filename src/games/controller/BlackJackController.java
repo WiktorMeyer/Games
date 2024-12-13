@@ -5,8 +5,8 @@ import games.view.TUI.BlackJackView;
 
 public class BlackJackController {
 
-    private BlackJack model;
-    private BlackJackView view;
+    private final BlackJack model;
+    private final BlackJackView view;
 
     public BlackJackController() {
         this.view = new BlackJackView();

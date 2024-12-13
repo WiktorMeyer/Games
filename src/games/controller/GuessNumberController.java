@@ -15,16 +15,16 @@ public class GuessNumberController {
         model = new GuessNumber();
     }
 
-    public void playGuessNumber(){
+    public void playGuessNumber() {
         boolean play = true;
         int bet;
         int winnings;
 
         view.displayWelcomeMessage();
-        while(play) {
+        while (play) {
             int multiplier = 10;
             //enter the bet
-            view.displayMessage("Current Balance: " + casino.getBalance() +"$");
+            view.displayMessage("Current Balance: " + casino.getBalance() + "$");
             bet = view.inputBet(casino.getBalance());
             casino.setBalance(casino.getBalance() - bet);
             //generate a random number
@@ -45,15 +45,15 @@ public class GuessNumberController {
             } while (enteredNumber != randomNumber);
             view.displayMessage("Correct! The number was: " + randomNumber);
 
-            winnings = bet*multiplier;
-            view.displayMessage("You won "+ winnings+"$");
+            winnings = bet * multiplier;
+            view.displayMessage("You won " + winnings + "$");
             casino.setBalance(casino.getBalance() + winnings);
 
             if (casino.getBalance() > 0){
-            //play again?
-            view.displayPlayAgainQuestion();
-            play = view.getBoolean();
-            }else{
+                //play again?
+                view.displayPlayAgainQuestion();
+                play = view.getBoolean();
+            } else {
                 view.displayNoMoney();
                 play = false;
             }

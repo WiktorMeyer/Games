@@ -1,4 +1,4 @@
 package games.model;
 
-public class BlackJack{
+public class BlackJack {
 }

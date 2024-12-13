@@ -19,6 +19,7 @@ public class GuessNumberView extends View {
 
     /**
      * reads the number
+     *
      * @return an integer that is in range
      */
     public int inputNumberInRange(int min, int max) {
@@ -26,10 +27,10 @@ public class GuessNumberView extends View {
         while (enteredNumber.isEmpty()) {
             try {
                 int input = parseInt(scanner.nextLine());
-                if (input < min || input > max) {
+                if (input < min || input > max){
                     System.out.println("That is outside the range.");
                     displayGuessBetween(min, max);
-                }else{
+                } else {
                     enteredNumber = Optional.of(input);
                 }
             } catch (NumberFormatException e) {

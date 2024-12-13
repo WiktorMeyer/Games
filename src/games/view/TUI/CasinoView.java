@@ -1,8 +1,8 @@
 package games.view.TUI;
 
-public class CasinoView extends View{
+public class CasinoView extends View {
 
-    public void displayOptions(){
+    public void displayOptions() {
         System.out.println("What do you want to play?");
         System.out.println("Press 1 for Blackjack");
         System.out.println("Press 2 for Guess Number");

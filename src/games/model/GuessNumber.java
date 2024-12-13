@@ -8,7 +8,7 @@ package games.model;
  */
 //TODO: implement playing for money
 
-public class GuessNumber{
+public class GuessNumber {
 
     private final int MIN;
     private final int MAX;
@@ -27,7 +27,6 @@ public class GuessNumber{
     }
 
     /**
-     *
      * @param min lower bound of the interval
      * @param max upper bound of the interval
      * @return an integer between min and max inclusive

@@ -1,13 +1,13 @@
 package games.model;
 
-import java.util.*;
+import java.util.Random;
 
 public class Slots {
 
     /**
      * @return A String array of length 3 with random symbols
      */
-    public String[] spinRow(){
+    public String[] spinRow() {
         String[] row = new String[3];
         String[] symbols = {"🍒", "🍉", "🍋", "🔔", "⭐"};
         Random rand = new Random();
@@ -20,11 +20,12 @@ public class Slots {
 
     /**
      * A method to determine the amount won
+     *
      * @param row Already spun row of symbols
      * @param bet Amount bet by the player
      * @return Amount of $ won by the player
      */
-    public int determineWinnings(String[] row, int bet){
+    public int determineWinnings(String[] row, int bet) {
         if (row[0].equals(row[1]) && row[1].equals(row[2])){
             return switch (row[1]) {
                 case ("🍒") -> bet * 3;
