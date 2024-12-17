@@ -7,16 +7,33 @@ public abstract class View {
 
     protected final Scanner scanner = new Scanner(System.in);
 
+    /**
+     * prints "Thank you for playing!"
+     */
     public void displayTy4Playing() {
         System.out.println("Thank you for playing!");
     }
 
+    /**
+     * Displays welcome message. Different for each game
+     */
     public abstract void displayWelcomeMessage();
 
+
+    /**
+     * prints the message to console
+     * @param message you want to print
+     */
     public void displayMessage(String message) {
         System.out.println(message);
     }
 
+    /**
+     * Ask the user to input how much they want to bet
+     * @ensures bet is <= to the balance
+     * @param balance current balance of the player
+     * @return amount that user wants to bet
+     */
     public int inputBet(int balance) {
         Optional<Integer> bet = Optional.empty();
 
@@ -41,6 +58,10 @@ public abstract class View {
         return bet.get();
     }
 
+    /**
+     * Gets a boolean based on user input (either yes or no)
+     * @return true if yes, false if no
+     */
     public boolean getBoolean() {
         while (true) {
             try {
