@@ -12,6 +12,10 @@ public class SlotsView extends View {
         System.out.println("************************\n");
     }
 
+    /**
+     * Displays a row of symbols
+     * @param row an Array that we want to display
+     */
     public void displayRow(String[] row) {
         System.out.println(Arrays.toString(row));
     }

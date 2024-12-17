@@ -2,6 +2,9 @@ package games.view.TUI;
 
 public class CasinoView extends View {
 
+    /**
+     * Displays what games are available to play and their corresponding button
+     */
     public void displayOptions() {
         System.out.println("What do you want to play?");
         System.out.println("Press 1 for Blackjack");

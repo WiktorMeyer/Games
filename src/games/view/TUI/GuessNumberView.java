@@ -13,6 +13,11 @@ public class GuessNumberView extends View {
         System.out.println("************************\n");
     }
 
+    /**
+     * Asks user to guess a number between min and max
+     * @param min
+     * @param max
+     */
     public void displayGuessBetween(int min, int max) {
         System.out.printf("Guess the number between %d and %d:%n", min, max);
     }
