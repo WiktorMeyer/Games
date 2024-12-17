@@ -7,13 +7,13 @@ import static games.model.Card.*;
 
 
 public class CardDeck {
-    private ArrayList<Card> cards;
+    private ArrayList<Card> cards = new ArrayList<>();
 
-    public CardDeck() {
-        cards = new ArrayList<>();
-    }
-
-    public void addCards(){
+    /**
+     * Adds standard amount of cards to the deck
+     * Can be called multiple times!
+     */
+    public void populateDeck(){
         for (String suit : SUIT_ARRAY) {
             for (String rank : RANK_ARRAY) {
                 Card card = new Card(rank, suit);
@@ -22,13 +22,10 @@ public class CardDeck {
         }
     }
 
+    /**
+     * Shuffles cards in deck
+     */
     public void shuffleDeck() {
         Collections.shuffle(cards);
-    }
-
-    public static void main(String[] args) {
-        CardDeck deck = new CardDeck();
-        deck.shuffleDeck();
-        System.out.println(deck.cards);
     }
 }

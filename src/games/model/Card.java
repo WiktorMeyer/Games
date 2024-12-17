@@ -39,6 +39,10 @@ public class Card {
         return suit;
     }
 
+    /**
+     *
+     * @return String representation of Card object in format: rank + " of " + suit
+     */
     @Override
     public String toString() {
         return rank + " of " + suit;
