@@ -8,6 +8,7 @@ import games.view.TUI.BlackJackView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class BlackJackController {
 
@@ -45,7 +46,7 @@ public class BlackJackController {
                 casinoCards.add(deck.dealCard());
                 //calculate card value
                 int[] playersValue = model.calculateCardsValue(playerCards);
-                int[] casinosValue = model.calculateCardsValue(casinoCards);
+                int[] casinosValue = model.calculateCardsValue(new ArrayList<>(List.of(casinoCards.get(0))));
                 //show casino's hand
                 view.displayMessage("Casino's cards are:");
                 view.displayMessage(casinoCards.get(0).toString());
