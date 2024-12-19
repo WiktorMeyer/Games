@@ -45,4 +45,21 @@ public class BlackJack {
         }
         return value;
     }
+
+    public int getWinnings(int[] casinosValue, int[] playersValue, int bet) {
+        int playerBestValue = getBestValue(playersValue);
+        int casinoBestValue = getBestValue(casinosValue);
+
+        if (playerBestValue > casinoBestValue){
+            return bet * 2;
+        } else if (playerBestValue < casinoBestValue){
+            return 0;
+        } else {
+            return bet;
+        }
+    }
+
+    private int getBestValue(int[] values) {
+        return (values[1] <= 21) ? values[1] : values[0];
+    }
 }

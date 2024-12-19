@@ -27,7 +27,7 @@ public class BlackJackView extends View {
         if (value[0] == value[1]) {
             System.out.println(value[0]);
         }else{
-            System.out.println(value[0] + " or " + value[1]);
+            System.out.println(value[0] + " or " + value[1]+"\n");
         }
     }
 
