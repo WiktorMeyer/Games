@@ -1,8 +1,12 @@
 package games.controller;
 
 import games.model.BlackJack;
+import games.model.Card;
+import games.model.CardDeck;
 import games.model.Casino;
 import games.view.TUI.BlackJackView;
+
+import java.util.ArrayList;
 
 public class BlackJackController {
 
@@ -22,12 +26,24 @@ public class BlackJackController {
         while (play) {
             int bet;
             int winnings;
+            CardDeck deck = model.getDeck();
+            ArrayList<Card> playerCards = model.getPlayersCards();
+            ArrayList<Card> casinoCards = model.getCasinoCards();
             if (casino.getBalance() > 0){
                 //get bet
                 view.displayBalance(casino.getBalance());
                 bet = view.inputBet(casino.getBalance());
                 casino.setBalance(casino.getBalance() - bet);
                 //TODO: play BlackJack
+                deck.populateDeck();
+                deck.shuffleDeck();
+                //deal cards
+                playerCards.add(deck.dealCard());
+                playerCards.add(deck.dealCard());
+                casinoCards.add(deck.dealCard());
+                casinoCards.add(deck.dealCard());
+                //show to the player his cards and 1st casino card
+                view.displayPlayerCards(playerCards);
                 //play again?
                 view.displayPlayAgainQuestion();
                 play = view.getBoolean();

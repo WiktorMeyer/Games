@@ -23,6 +23,14 @@ public class CardDeck {
     }
 
     /**
+     * Deals a card and removes it from the deck
+     * @return 1 card
+     */
+    public Card dealCard(){
+        return cards.remove(0);
+    }
+
+    /**
      * Shuffles cards in deck
      */
     public void shuffleDeck() {
