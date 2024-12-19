@@ -24,7 +24,8 @@ public class CasinoController {
             view.displayOptions();
             choice = view.inputNumber();
             if (choice == 1){
-                //TODO: play Blackjack
+                BlackJackController blackJackController = new BlackJackController(model);
+                blackJackController.playBlackJack();
             } else if (choice == 2){
                 GuessNumberController guessNumberController = new GuessNumberController(model);
                 guessNumberController.playGuessNumber();
