@@ -8,7 +8,6 @@ import games.view.TUI.BlackJackView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class BlackJackController {
 
@@ -76,7 +75,7 @@ public class BlackJackController {
                 } else if (playersValue[0] == 21 || playersValue[1] == 21){
                     view.displayMessage("Black Jack!");
                     winnings = (int) (bet * 2.5);
-                    view.displayMessage("You win " + winnings + "$");
+                    view.displayWinnings(winnings,bet);
                     break;
                 }
 
@@ -84,7 +83,7 @@ public class BlackJackController {
                 String decision = view.determineMove();
                 if (decision.equals("stand")){
                     winnings = casinosTurn(casinoCards, playerCards, deck, bet);
-                    view.displayMessage("You win " + winnings + "$");
+                    view.displayWinnings(winnings,bet);
                     playerTurn = false;
                 } else {//hit
                     playerCards.add(deck.dealCard());

@@ -139,4 +139,14 @@ public abstract class View {
         }
         System.out.println("Current Balance: " + formatted + "$");
     }
+
+    public void displayWinnings(int winnings, int bet) {
+        if (winnings > bet){
+            System.out.println("You won " + winnings + "$");
+        }else if (winnings == 0){
+            System.out.println("You lost " + bet + "$");
+        }else if (winnings == bet){
+            System.out.println("Draw! You get your" + bet + "back!");
+        }
+    }
 }

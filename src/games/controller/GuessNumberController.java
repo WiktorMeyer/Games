@@ -46,7 +46,7 @@ public class GuessNumberController {
             view.displayMessage("Correct! The number was: " + randomNumber);
 
             winnings = bet * multiplier;
-            view.displayMessage("You won " + winnings + "$");
+            view.displayWinnings(winnings,bet);
             casino.setBalance(casino.getBalance() + winnings);
 
             if (casino.getBalance() > 0){

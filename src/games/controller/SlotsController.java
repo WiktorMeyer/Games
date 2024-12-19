@@ -37,7 +37,7 @@ public class SlotsController {
                 //getting the winnings
                 TimeUnit.MILLISECONDS.sleep(500);
                 winnings = model.determineWinnings(row, bet);
-                view.displayMessage("You won " + winnings + "$");
+                view.displayWinnings(winnings,bet);
                 casino.setBalance(casino.getBalance() + winnings);
                 //play again?
                 view.displayPlayAgainQuestion();
