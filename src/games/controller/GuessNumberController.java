@@ -24,7 +24,7 @@ public class GuessNumberController {
         while (play) {
             int multiplier = 10;
             //enter the bet
-            view.displayMessage("Current Balance: " + casino.getBalance() + "$");
+            view.displayBalance(casino.getBalance());
             bet = view.inputBet(casino.getBalance());
             casino.setBalance(casino.getBalance() - bet);
             //generate a random number

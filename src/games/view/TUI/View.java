@@ -125,4 +125,18 @@ public abstract class View {
         }
         return balance.get();
     }
+
+    public void displayBalance(int balance) {
+        String balanceString = Integer.toString(balance);
+        StringBuilder formatted = new StringBuilder();
+
+        int length = balanceString.length();
+        for (int i = 0; i < length; i++) {
+            formatted.append(balanceString.charAt(i));
+            if ((length - i - 1) % 3 == 0 && i != length - 1) {
+                formatted.append(" ");
+            }
+        }
+        System.out.println("Current Balance: " + formatted + "$");
+    }
 }
