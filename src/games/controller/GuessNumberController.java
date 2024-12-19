@@ -37,8 +37,8 @@ public class GuessNumberController {
                 if (enteredNumber != randomNumber){
                     view.displayMessage("Incorrect :c Try again!");
                     multiplier = switch (multiplier) {
-                        case 10 -> 5;
-                        case 5 -> 2;
+                        case 10 -> 3;
+                        case 3 -> 2;
                         default -> 0;
                     };
                 }
