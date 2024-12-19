@@ -7,6 +7,7 @@ import games.model.Casino;
 import games.view.TUI.BlackJackView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BlackJackController {
 
@@ -44,6 +45,8 @@ public class BlackJackController {
                 casinoCards.add(deck.dealCard());
                 //show to the player his cards and 1st casino card
                 view.displayPlayerCards(playerCards);
+                int[] value = model.calculateCardsValue(playerCards);
+                view.displayCardsValue(value);
                 //play again?
                 view.displayPlayAgainQuestion();
                 play = view.getBoolean();

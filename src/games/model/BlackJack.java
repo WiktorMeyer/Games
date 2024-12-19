@@ -18,4 +18,26 @@ public class BlackJack {
     public CardDeck getDeck() {
         return deck;
     }
+
+    public int[] calculateCardsValue(ArrayList<Card> cards) {
+        int[] value = {0,0};
+        for (Card card : cards) {
+            String rank = card.getRank();
+            try {
+                value[0] += Integer.parseInt(rank);
+                value[1] += Integer.parseInt(rank);
+            }catch (NumberFormatException e) {
+                if (rank.equals("Ten") || rank.equals("Jack") || rank.equals("Queen") || rank.equals("King")) {
+                    value[0] += 10;
+                    value[1] += 10;
+                }else if (rank.equals("Ace")) {
+                    value[0] += 1;
+                    value[1] += 11;
+                }else{
+                    System.out.println("Error occured");
+                }
+            }
+        }
+        return value;
+    }
 }
