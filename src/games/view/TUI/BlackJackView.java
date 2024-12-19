@@ -13,6 +13,10 @@ public class BlackJackView extends View {
         System.out.println("**********************\n");
     }
 
+    /**
+     * Your cards are:
+     * @param cards players cards
+     */
     public void displayPlayerCards(ArrayList<Card> cards) {
         System.out.println("Your cards are:");
         System.out.println(cards);
@@ -21,7 +25,7 @@ public class BlackJackView extends View {
     public void displayCardsValue(int[] value) {
         System.out.print("Total value: ");
         if (value[0] == value[1]) {
-            System.out.print(value[0]);
+            System.out.println(value[0]);
         }else{
             System.out.println(value[0] + " or " + value[1]);
         }

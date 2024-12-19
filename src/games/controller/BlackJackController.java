@@ -43,10 +43,18 @@ public class BlackJackController {
                 playerCards.add(deck.dealCard());
                 casinoCards.add(deck.dealCard());
                 casinoCards.add(deck.dealCard());
-                //show to the player his cards and 1st casino card
+                //calculate card value
+                int[] playersValue = model.calculateCardsValue(playerCards);
+                int[] casinosValue = model.calculateCardsValue(casinoCards);
+                //show casino's hand
+                view.displayMessage("Casino's cards are:");
+                view.displayMessage(casinoCards.get(0).toString());
+                view.displayCardsValue(casinosValue);
+                //show player's hand
                 view.displayPlayerCards(playerCards);
-                int[] value = model.calculateCardsValue(playerCards);
-                view.displayCardsValue(value);
+                view.displayCardsValue(playersValue);
+                //ask player for his decision
+
                 //play again?
                 view.displayPlayAgainQuestion();
                 play = view.getBoolean();

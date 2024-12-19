@@ -19,6 +19,11 @@ public class BlackJack {
         return deck;
     }
 
+    /**
+     * Calculates value for cards in BlackJack
+     * @param cards of which value needs to be calculated
+     * @return value of the card provided
+     */
     public int[] calculateCardsValue(ArrayList<Card> cards) {
         int[] value = {0,0};
         for (Card card : cards) {
