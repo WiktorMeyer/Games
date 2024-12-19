@@ -8,6 +8,7 @@ import games.view.TUI.BlackJackView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class BlackJackController {
 
@@ -27,7 +28,7 @@ public class BlackJackController {
         while (play) {
             int winnings = 0;
             //check if player has money
-            if (casino.getBalance() < 0){
+            if (casino.getBalance() <= 0){
                 view.displayNoMoney();
                 break;
             }
@@ -45,6 +46,8 @@ public class BlackJackController {
             //get hands of both players
             ArrayList<Card> casinoCards = model.getCasinoCards();
             ArrayList<Card> playerCards = model.getPlayersCards();
+            model.getPlayersCards().clear();
+            model.getCasinoCards().clear();
 
             //deal initial cards
             playerCards.add(deck.dealCard());
@@ -59,8 +62,7 @@ public class BlackJackController {
                 int[] casinosValue = model.calculateCardsValue(new ArrayList<>(List.of(casinoCards.get(0))));
 
                 //display casino's hand
-                view.displayMessage("Casino's cards are:");
-                view.displayMessage(casinoCards.get(0).toString());
+                view.displayCasinoCards(casinoCards.get(0));
                 view.displayCardsValue(casinosValue);
 
                 //display player's hand
@@ -82,6 +84,7 @@ public class BlackJackController {
                 String decision = view.determineMove();
                 if (decision.equals("stand")){
                     winnings = casinosTurn(casinoCards, playerCards, deck, bet);
+                    view.displayMessage("You win " + winnings + "$");
                     playerTurn = false;
                 } else {//hit
                     playerCards.add(deck.dealCard());
@@ -110,8 +113,10 @@ public class BlackJackController {
             view.displayPlayerCards(playerCards);
             view.displayCardsValue(playersValue);
             //casino draws cards
-            if (casinosValue[0] < 17 || !(casinosValue[1] > 17 && casinosValue[1] <= 21)){
-                view.displayMessage("Casino draws a card");
+            if (casinosValue[0] < 17 && (casinosValue[1] < 17 || casinosValue[1] > 21)){
+                view.displayMessage("\nCasino will draw a card");
+                view.displayMessage("Press enter to proceed");
+                view.waitingForEnter();
                 casinoCards.add(deck.dealCard());
             }
         } while (casinosValue[0] < 17 && (casinosValue[1] < 17 || casinosValue[1] > 21));

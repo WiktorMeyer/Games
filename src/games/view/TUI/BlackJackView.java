@@ -18,16 +18,26 @@ public class BlackJackView extends View {
      * @param cards players cards
      */
     public void displayPlayerCards(ArrayList<Card> cards) {
-        System.out.println("Your cards are:");
+        System.out.println("\nYour cards are:");
         System.out.println(cards);
+    }
+
+    public void displayCasinoCards(ArrayList<Card> cards) {
+        System.out.println("\nCasino's cards are:");
+        System.out.println(cards);
+    }
+
+    public void displayCasinoCards(Card card) {
+        System.out.println("\nCasino's card is:");
+        System.out.println(card);
     }
 
     public void displayCardsValue(int[] value) {
         System.out.print("Total value: ");
-        if (value[0] == value[1]) {
+        if (value[0] == value[1] || value[1] > 21) {
             System.out.println(value[0]);
         }else{
-            System.out.println(value[0] + " or " + value[1]+"\n");
+            System.out.println(value[0] + " or " + value[1]);
         }
     }
 
@@ -36,7 +46,6 @@ public class BlackJackView extends View {
      */
     public String determineMove(){
         System.out.println("HIT or STAND?");
-        System.out.println("Enter h or s");
         while (true) {
             try {
                 String input = scanner.nextLine();
@@ -45,11 +54,14 @@ public class BlackJackView extends View {
                 } else if (input.equalsIgnoreCase("s") || input.equalsIgnoreCase("stand")){
                     return "stand";
                 } else {
-                    System.out.println("Enter h or s");
+                    System.out.println("Enter h for hit or s for stand");
                 }
             } catch (Exception e) {
-                System.out.println("Enter h or s");
+                System.out.println("Enter h for hit or s for stand");
             }
         }
+    }
+    public void waitingForEnter(){
+        scanner.nextLine();
     }
 }
