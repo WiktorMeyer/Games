@@ -30,4 +30,26 @@ public class BlackJackView extends View {
             System.out.println(value[0] + " or " + value[1]);
         }
     }
+
+    /**
+     * @return "hit" or "stand"
+     */
+    public String determineMove(){
+        System.out.println("HIT or STAND?");
+        System.out.println("Enter h or s");
+        while (true) {
+            try {
+                String input = scanner.nextLine();
+                if (input.equalsIgnoreCase("h") || input.equalsIgnoreCase("hit")){
+                    return "hit";
+                } else if (input.equalsIgnoreCase("s") || input.equalsIgnoreCase("stand")){
+                    return "stand";
+                } else {
+                    System.out.println("Enter h or s");
+                }
+            } catch (Exception e) {
+                System.out.println("Enter h or s");
+            }
+        }
+    }
 }
